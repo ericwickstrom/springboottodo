@@ -5,9 +5,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- push todos to server -->
 	<div ng-controller="todoController">
-		{{ message }}
+		<form ng-submit="create()">
+			<input type="text" ng-model="todo"/>
+			<input type="submit"/>
+		</form>
+		<hr/>
+		<div ng-repeat="todo in todos">
+		{{todo.id }} {{todo.text}} <a href="" ng-click="deleteTodo(todo)">delete</a>
+		</div>
 	</div>
+	
 	<script src="/bower_components/angular/angular.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/controllers/todocontroller.js"></script>
